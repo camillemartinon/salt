@@ -5,9 +5,11 @@ supervisor:
   pkg.installed:
     - require:
       - sls: hwaas-site
+
+supervisord:
   service.running:
     - watch:
-      - file: /etc/supervisor/conf.d/hwaas-site.conf
+      - file: /etc/supervisord.d/hwaas-site.ini
 
 restart-hwaas-site:
   supervisord.running:
@@ -15,7 +17,7 @@ restart-hwaas-site:
     - watch:
       - sls: hwaas-site
 
-/etc/supervisor/conf.d/hwaas-site.conf:
+/etc/supervisord.d/hwaas-site.ini:
   file.managed:
     - source: salt://hwaas-service/supervisor.conf
     - require:

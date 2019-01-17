@@ -1,6 +1,6 @@
-include:
-  - nodejs-package
-
+#include:
+#  - nodejs-package
+#
 hwaas-user:
   user.present:
     - name: hwaas
@@ -19,7 +19,7 @@ hwaas-source:
     - require:
       - user: hwaas-user
       - pkg: git-client-package
-      - sls: nodejs-package
+#      - sls: nodejs-package
 
 hwaas-npm-install:
   cmd.wait:

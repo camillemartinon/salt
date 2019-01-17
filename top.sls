@@ -1,7 +1,7 @@
 base:
   'roles:hwaas-web':
     - match: grain
-    - nodejs-package
+#    - nodejs-package
     - hwaas-service
   'roles:load-balancing':
     - match: grain
